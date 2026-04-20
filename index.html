@@ -158,24 +158,11 @@ html,body{height:100%;background:#0a0908;color:var(--txt);
 
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 
-/* ===== DEMO BAR ===== */
-.dbar{position:fixed;bottom:0;left:0;right:0;background:#080706;
-  border-top:1px solid rgba(201,148,62,.08);padding:.4rem .5rem;
-  display:flex;align-items:center;justify-content:center;gap:.35rem;z-index:300;flex-wrap:wrap}
-.dbar label{font-size:.45rem;text-transform:uppercase;letter-spacing:.06em;color:var(--dimm)}
-.dbar input[type=range]{width:75px;accent-color:var(--gold)}
-.dbar span{font-size:.55rem;color:var(--goldb);min-width:2ch;font-family:monospace}
-.db{appearance:none;border:1px solid var(--dimm);background:transparent;color:var(--dimm);
-  font-family:inherit;font-size:.42rem;letter-spacing:.05em;padding:.2rem .4rem;
-  border-radius:3px;cursor:pointer;text-transform:uppercase}
-.db.on{border-color:var(--gold);color:var(--goldb)}
-.db-sep{width:1px;height:10px;background:rgba(212,165,106,.08)}
-.dtag{position:fixed;top:.3rem;right:.4rem;font-size:.36rem;text-transform:uppercase;
-  letter-spacing:.15em;color:var(--dimm);z-index:50;opacity:.3}
+
 </style>
 </head>
 <body>
-<div class="dtag">v6</div>
+
 <div class="phone">
 
 <!-- ===== A: CARTEL ===== -->
@@ -193,9 +180,7 @@ html,body{height:100%;background:#0a0908;color:var(--txt);
       </div>
       <p class="c-foot">2 Nómadas Fusion Food</p>
     </div>
-    <div style="position:absolute;bottom:.6rem;left:50%;transform:translateX(-50%);z-index:5">
-      <button class="btn-ghost" onclick="go('a-choose')">Simular escaneo →</button>
-    </div>
+    
   </div>
 </div>
 
@@ -319,22 +304,7 @@ html,body{height:100%;background:#0a0908;color:var(--txt);
   </div>
 </div>
 
-<!-- DEMO -->
-<div class="dbar">
-  <button class="db" onclick="go('a-cartel')">Cartel</button>
-  <button class="db" onclick="go('a-choose')">Café</button>
-  <button class="db" onclick="go('a-ticket')">Ticket</button>
-  <button class="db" onclick="go('a-staff')">Staff</button>
-  <div class="db-sep"></div>
-  <button class="db" onclick="go('b-explain')">Carta</button>
-  <button class="db" onclick="go('b-register')">Registro</button>
-  <button class="db" onclick="go('b-passport')">Pasaporte</button>
-  <div class="db-sep"></div>
-  <label>Día:</label>
-  <input type="range" id="sl" min="0" max="30" value="0">
-  <span id="sv">0</span>
-  <button class="db" id="nq">Otra</button>
-</div>
+
 
 <script>
 var st={days:0,done:false,rew:false,qi:0,name:"",coffee:"",code:"",cnt:0};
@@ -502,10 +472,6 @@ function ans(idx){
 function showRew(){$("rew").classList.remove("off");renderMap("map-rew",30,true)}
 function closeRew(){$("rew").classList.add("off")}
 
-// DEMO
-var sl=$("sl"),sv=$("sv");
-sl.addEventListener("input",function(){st.days=parseInt(this.value);st.rew=st.days>=30;st.done=false;st.qi=st.days;sv.textContent=st.days;renderPass()});
-$("nq").addEventListener("click",function(){st.done=false;st.qi=(st.qi+1)%QS.length;renderPass()});
 </script>
 </body>
 </html>
